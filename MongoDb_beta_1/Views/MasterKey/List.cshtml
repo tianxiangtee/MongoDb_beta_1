@@ -1,0 +1,62 @@
+﻿@using MongoDb_beta_1.ViewModel
+@model IEnumerable<MasterKeyWordViewModel>
+
+
+
+<a class="btn btn-success mt-5" style="margin: 10px" asp-controller="Customer" asp-action="Create">Create new customer</a>
+
+
+
+<table class="table table-striped table-hover ">
+
+    <thead>
+
+        <tr>
+
+            @*<th>Object_Id</th>*@
+            <th>Id</th>
+            <th>KEY</th>
+            <th>KEYWORDS</th>
+            <th>TYPE</th>
+            <th>CREATED_BY</th>
+            <th>CREATED_DATE</th>
+            <th>MODIFIED_BY</th>
+            <th>MODIFIED_DATE</th>
+            <th>IS_ACTIVE</th>
+
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        @foreach (var masterKeyWord in Model)
+
+        {
+
+        <tr>
+
+            @*<td>@masterKeyWord.Keyword._Id</td>*@
+            <td>@masterKeyWord.Keyword.Id</td>
+            <td>@masterKeyWord.Keyword.KEY</td>
+            <td>@masterKeyWord.Keyword.KEYWORDS</td>
+            <td>@masterKeyWord.Keyword.TYPE</td>
+            <td>@masterKeyWord.Keyword.CREATED_BY</td>
+            <td>@masterKeyWord.Keyword.CREATED_DATE</td>
+            <td>@masterKeyWord.Keyword.MODIFIED_BY</td>
+            <td>@masterKeyWord.Keyword.MODIFIED_DATE</td>
+            <td>@masterKeyWord.Keyword.IS_ACTIVE</td>
+
+
+
+            @*<td><a class="btn btn-info" asp-area="" asp-controller="Customer" asp-action="Update" asp-route-id="@masterKeyWord.Keyword._Id">Edit</a></td>
+
+            <td><a class="btn btn-danger" asp-area="" asp-controller="Customer" asp-action="Delete" asp-route-id="@masterKeyWord.Keyword._Id">Delete</a></td>*@
+
+        </tr>
+
+        }
+
+    </tbody>
+
+</table>

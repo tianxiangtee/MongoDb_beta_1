@@ -9,6 +9,9 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using MongoDb_beta_1.IRepository;
+using MongoDb_beta_1.Mongo;
+using MongoDb_beta_1.Repository;
 
 namespace MongoDb_beta_1
 {
@@ -33,6 +36,9 @@ namespace MongoDb_beta_1
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.Configure<Settings>(o => { o.iConfigurationRoot = (IConfigurationRoot)Configuration; });
+            services.AddTransient<IMasterKeyRepository, MasterKeyRepository>();
+            services.AddTransient<IMasterReceiverRepository, MasterReceiverRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
